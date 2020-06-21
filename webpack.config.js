@@ -19,18 +19,14 @@ module.exports = {
     devtool: "inline-source-map",
     devServer: {
         port: 3000,
-        open: true,
+        overlay: true,
+        host: '0.0.0.0',
         proxy: {
-        	'/users/**': {
-            target: 'http://localhost:8000',
-            changeOrigin:true,
+            '/users': 'http://localhost:8000'
         //publicPath: '/dist/',
-        headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
-    }
-  }
-}
+
+  
+		}
     },
     plugins: [new MiniCssExtractPlugin(),
     		 new webpack.ProvidePlugin({

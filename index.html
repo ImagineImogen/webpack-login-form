@@ -25,9 +25,7 @@
                 $(".login").css("background", "none")
             });
 
-                $("btn").click(function(){
-                    $(".input").val("");
-                })
+
         });
     </script>
 </head>
@@ -39,11 +37,11 @@
       <div class="login">Log In</div>
       
        <div class="signup-form">
-        <form action="/api/register" method="post" id="register-form">
+        <form action="/users/register/" method="post" id="register-form">
           <input type="text" placeholder="Your Email Address" class="input"><br />
           <input type="text" placeholder="Choose a Username" class="input"><br />
           <input type="password" placeholder="Choose a Password" class="input"><br />
-          <div class="btn">Create account</div>
+          <input type="submit" class="btn">Create account</div>
       </form>
        </div>
       
@@ -51,7 +49,7 @@
         <form action="/users/login/" method="post" id="signin-form">
           <input type="text" placeholder="Email or Username" class="input" name="username" id="username"><br />
           <input type="password" placeholder="Password" class="input"><br />
-          <input type="submit" value= "Login" name="btn">
+          <input type="submit" value= "Login" class="btn">
           <span><a href="#">I forgot my username or password.</a></span>
         </form>
        </div>
