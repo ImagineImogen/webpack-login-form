@@ -1,23 +1,31 @@
-var $ = require('jquery')
+//var $ = require('jquery')
 //import './styles.css'
 require(style.css)
+var API_URL = '/users/'
 
 
 $('form').submit(function(event){
-	var userEmail = $('#email').val();
+	var userName = $('#Username').val();
 	var userPassword = $('#password').val()
 	event.preventDefault();
 	$.ajax({
-	url: '/',
+	url: API_URL,
 	type: 'POST',
 	data: {
-		email: UserEmail
+		Username: UserEmail,
+		password: userPassword
 	},
-	success: function(response) {
+	done: function(response) {
 		console.log(response)
 	}
 });
 
 })
-console.log("it is working!")
+console.log("it is not working!")
+
+document.addEventListener("DOMContentLoaded", function(event) {
+  const element = document.createElement('h1')
+  element.innerHTML = "Hello World"
+  document.body.appendChild(element)
+})
 
