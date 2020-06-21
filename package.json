@@ -2,7 +2,7 @@
   "name": "webpacktask",
   "version": "1.0.0",
   "description": "",
-  "main": "webpack.config.js",
+  "main": "scripts.js",
   "dependencies": {
     "jquery": "^3.5.1",
     "script-loader": "^0.7.2"
@@ -21,9 +21,9 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "webpack-dev-server --host 0.0.0.0 --port 8080 --config webpack.config.js",
     "build": "webpack --config webpack.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "proxy": "webpack-dev-server"
   },
   "author": "Liza",
   "license": "ISC"

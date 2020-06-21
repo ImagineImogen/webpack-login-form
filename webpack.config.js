@@ -4,11 +4,12 @@ const webpack = require('webpack')
 
 
 module.exports = {
+	context: __dirname,
 	entry: './src/scripts.js',
     output: {
         path: path.resolve(__dirname, '../dist'),
-        publicPath: '/dist/',
-        filename: "build.[contenthash].js",
+        //publicPath: '/dist/',
+        filename: 'bundle.min.js',
     },
 
   target: 'web',
@@ -20,9 +21,15 @@ module.exports = {
         port: 3000,
         open: true,
         proxy: {
-            '/users': 'http://localhost:8000',
+        	'/users/**': {
+            target: 'http://localhost:8000',
             changeOrigin:true,
-        publicPath: '/dist/',
+        //publicPath: '/dist/',
+        headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+    }
+  }
 }
     },
     plugins: [new MiniCssExtractPlugin(),

@@ -1,31 +1,21 @@
 //var $ = require('jquery')
-//import './styles.css'
-require(style.css)
-var API_URL = '/users/'
+import './styles.css'
+import axios from 'axios';
+//require(style.css)
+const API_URL = '/users/'
 
+console.log("it works again")
 
-$('form').submit(function(event){
-	var userName = $('#Username').val();
-	var userPassword = $('#password').val()
-	event.preventDefault();
-	$.ajax({
-	url: API_URL,
-	type: 'POST',
-	data: {
-		Username: UserEmail,
-		password: userPassword
-	},
-	done: function(response) {
-		console.log(response)
-	}
-});
+let loginForm = document.getElementById('signin-form')
 
-})
-console.log("it is not working!")
-
-document.addEventListener("DOMContentLoaded", function(event) {
-  const element = document.createElement('h1')
-  element.innerHTML = "Hello World"
-  document.body.appendChild(element)
+loginForm.addEventListener('submit', e => {
+    e.preventDefault()
+    let loginFormData = new FormData(loginForm)
+    console.log(loginFormData)
+    axios.post(`${API_URL}login/`, loginFormData)
+        .then(response => {
+            alert("You've been successfully authorized")
+        })
+        .catch(error => alert('wrong data, please try again'))
 })
 
